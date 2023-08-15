@@ -52,12 +52,9 @@ void print_times_table(int n)
 					_putchar((product / 10) % 10 + '0');
 					_putchar(product % 10 + '0');
 				}
-				
+
 			}
 			_putchar('\n');
-			
 		}
-		
 	}
-	
 }

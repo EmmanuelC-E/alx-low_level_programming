@@ -1,0 +1,1 @@
+A compilation of scripts for pointers and array in C

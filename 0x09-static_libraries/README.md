@@ -1,0 +1,1 @@
+A compilation of scripts for static library in C

@@ -1,26 +1,43 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
- * array_range - ...
- * @min: ...
- * @max: ...
- * Return: integer value
+ * _realloc - ...
+ * @ptr: ...
+ * @old_size: ...
+ * @new_size: ...
+ * Return: ...
  */
-int *array_range(int min, int max)
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	int *a, i = 0;
+	char *nptr;
+	unsigned int i;
 
-	if (min > max)
-		return (NULL);
-	a = malloc((sizeof(int) * (max - min)) + sizeof(int));
-	if (a == NULL)
-		return (NULL);
-	while (min <= max)
+	if (new_size == old_size)
+		return (ptr);
+	if (ptr == NULL)
 	{
-		a[i] = min;
-		i++;
-		min++;
+		nptr = malloc(new_size);
+		if (nptr == NULL)
+			return (NULL);
+		return (nptr);
 	}
-	return (a);
+	else
+	{
+		if (new_size == 0)
+		{
+			free(ptr);
+			return (NULL);
+		}
+	}
+	nptr = malloc(new_size);
+	if (nptr == NULL)
+		return (NULL);
+	for (i = 0; i < old_size && i < new_size; i++)
+	{
+		nptr[i] = ((char *) ptr)[i];
+	}
+	free(ptr);
+	return (nptr);
 }

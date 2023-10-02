@@ -17,7 +17,7 @@ void print_addr(char *ptr)
 	int begin;
 	char sys;
 
-	printf("  Entry point address:               0x");
+	printf("Entry point address:              0x");
 
 	sys = ptr[4] + '0';
 	if (sys == '1')
@@ -98,7 +98,7 @@ void print_osabi(char *ptr)
 	else
 		printf("<unknown: %x>\n", osabi);
 
-	printf("  ABI Version:                       %d\n", ptr[8]);
+	printf("  ABI Version:       %d\n", ptr[8]);
 }
 
 /**
